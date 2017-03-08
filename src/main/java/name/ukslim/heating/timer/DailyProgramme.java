@@ -9,7 +9,8 @@ import java.util.stream.Collectors;
 
 import com.google.common.collect.Iterables;
 
-import name.ukslim.heating.timer.daily.TimeTempPair;
+import name.ukslim.heating.types.Temperature;
+import name.ukslim.heating.types.TimeTempPair;
 
 public class DailyProgramme implements Programme {
 

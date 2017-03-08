@@ -21,6 +21,8 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
+import name.ukslim.heating.types.Temperature;
+
 public class FiveTwoProgrammeTest {
 
     private static final LocalDateTime ARBITRARY_DATETIME = LocalDateTime.of(2017, Month.MARCH, 13, 10, 12);

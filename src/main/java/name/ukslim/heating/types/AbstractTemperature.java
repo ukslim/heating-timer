@@ -1,4 +1,4 @@
-package name.ukslim.heating.timer;
+package name.ukslim.heating.types;
 
 import org.immutables.value.Value;
 

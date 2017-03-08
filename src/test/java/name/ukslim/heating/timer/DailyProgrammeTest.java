@@ -14,7 +14,8 @@ import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 
-import name.ukslim.heating.timer.daily.TimeTempPair;
+import name.ukslim.heating.types.Temperature;
+import name.ukslim.heating.types.TimeTempPair;
 
 public class DailyProgrammeTest {
 

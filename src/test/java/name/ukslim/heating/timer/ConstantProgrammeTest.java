@@ -9,6 +9,8 @@ import java.util.Optional;
 
 import org.junit.Test;
 
+import name.ukslim.heating.types.Temperature;
+
 public class ConstantProgrammeTest {
     
     @Test

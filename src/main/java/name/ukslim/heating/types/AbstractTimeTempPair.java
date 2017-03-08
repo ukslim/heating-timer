@@ -1,10 +1,8 @@
-package name.ukslim.heating.timer.daily;
+package name.ukslim.heating.types;
 
 import java.time.LocalTime;
 
 import org.immutables.value.Value;
-
-import name.ukslim.heating.timer.Temperature;
 
 @Value.Immutable
 public abstract class AbstractTimeTempPair {

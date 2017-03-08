@@ -3,6 +3,8 @@ package name.ukslim.heating.timer;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import name.ukslim.heating.types.Temperature;
+
 public class ConstantProgramme implements Programme {
 
     private final Temperature constantTemp;
