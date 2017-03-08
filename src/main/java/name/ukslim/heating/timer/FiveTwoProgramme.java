@@ -7,7 +7,7 @@ import name.ukslim.heating.types.Temperature;
 
 /**
  * A <code>Programme</code> that delegates to weekend or weekday Programmes
- * depending on the target date
+ * depending on the target date.
  */
 public class FiveTwoProgramme implements Programme {
 

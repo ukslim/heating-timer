@@ -12,6 +12,11 @@ import com.google.common.collect.Iterables;
 import name.ukslim.heating.types.Temperature;
 import name.ukslim.heating.types.TimeTempPair;
 
+/**
+ * <code>Programme</code> that encapsulating a daily schedule. That is, 
+ * it's programmed with a set of control points based on time of day,
+ * and ignores the date part of a request.
+ */
 public class DailyProgramme implements Programme {
 
     private final List<TimeTempPair> controlPoints;
