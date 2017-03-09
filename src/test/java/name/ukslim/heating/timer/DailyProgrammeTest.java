@@ -61,12 +61,12 @@ public class DailyProgrammeTest {
     @Test
     public void marshals_to_json() throws JsonProcessingException {
         String json = objectMapper.writeValueAsString(dailyProgramme);
-        assertThat(json, is("{\"controlPoints\":[{\"time\":[11,20],\"temperature\":{\"deciCelcius\":150}},{\"time\":[10,15],\"temperature\":{\"deciCelcius\":210}}]}"));
+        assertThat(json, is("{\"type\":\"daily\",\"controlPoints\":[{\"time\":[11,20],\"temperature\":{\"deciCelcius\":150}},{\"time\":[10,15],\"temperature\":{\"deciCelcius\":210}}]}"));
     }
     
     @Test
     public void unmarshals_from_json() throws JsonProcessingException, IOException {
-        DailyProgramme actual = objectMapper.readValue("{\"controlPoints\":[{\"time\":[11,20],\"temperature\":{\"deciCelcius\":150}},{\"time\":[10,15],\"temperature\":{\"deciCelcius\":210}}]}", DailyProgramme.class);
+        Programme actual = objectMapper.readValue("{\"type\":\"daily\",\"controlPoints\":[{\"time\":[11,20],\"temperature\":{\"deciCelcius\":150}},{\"time\":[10,15],\"temperature\":{\"deciCelcius\":210}}]}", Programme.class);
         assertThat(actual, is(dailyProgramme));
     }
 }

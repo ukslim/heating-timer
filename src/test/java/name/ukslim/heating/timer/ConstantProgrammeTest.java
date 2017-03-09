@@ -29,12 +29,12 @@ public class ConstantProgrammeTest {
     public void marshals_to_json() throws JsonProcessingException {
         ConstantProgramme instance = new ConstantProgramme(Temperature.of(250));
         
-        assertThat(mapper.writeValueAsString(instance), is("{\"constantTemp\":{\"deciCelcius\":250}}"));
+        assertThat(mapper.writeValueAsString(instance), is("{\"type\":\"constant\",\"constantTemp\":{\"deciCelcius\":250}}"));
     }
     
     @Test
     public void unmarshals_from_json() throws Exception {
-        ConstantProgramme programme = mapper.readValue("{\"constantTemp\":{\"deciCelcius\":150}}", ConstantProgramme.class);
+        Programme programme = mapper.readValue("{\"type\":\"constant\",\"constantTemp\":{\"deciCelcius\":150}}", Programme.class);
         assertThat(programme, is(new ConstantProgramme(Temperature.of(150))));
     }
 }
