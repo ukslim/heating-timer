@@ -3,6 +3,7 @@ package name.ukslim.heating.timer;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -12,6 +13,8 @@ import java.util.Optional;
 
 import org.junit.Test;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 
 import name.ukslim.heating.types.Temperature;
@@ -24,7 +27,15 @@ public class DailyProgrammeTest {
                 TimeTempPair.of(LocalTime.of(10, 15), Temperature.of(210)),
                 TimeTempPair.of(LocalTime.of(11, 20), Temperature.of(150))
     );
+    
+    private final ObjectMapper objectMapper;
+    
     final Programme dailyProgramme = new DailyProgramme(CONTROL_POINTS);
+
+    public DailyProgrammeTest() {
+        this.objectMapper = new ObjectMapper();
+        objectMapper.findAndRegisterModules();
+    }
     
     @Test
     public void gets_target_temperature_between_first_and_second_control_points_of_day() {
@@ -47,4 +58,15 @@ public class DailyProgrammeTest {
         assertThat(actual, is(Optional.of(Temperature.of(150))));
     }
 
+    @Test
+    public void marshals_to_json() throws JsonProcessingException {
+        String json = objectMapper.writeValueAsString(dailyProgramme);
+        assertThat(json, is("{\"controlPoints\":[{\"time\":[11,20],\"temperature\":{\"deciCelcius\":150}},{\"time\":[10,15],\"temperature\":{\"deciCelcius\":210}}]}"));
+    }
+    
+    @Test
+    public void unmarshals_from_json() throws JsonProcessingException, IOException {
+        DailyProgramme actual = objectMapper.readValue("{\"controlPoints\":[{\"time\":[11,20],\"temperature\":{\"deciCelcius\":150}},{\"time\":[10,15],\"temperature\":{\"deciCelcius\":210}}]}", DailyProgramme.class);
+        assertThat(actual, is(dailyProgramme));
+    }
 }

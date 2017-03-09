@@ -4,12 +4,17 @@ import java.time.LocalTime;
 
 import org.immutables.value.Value;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 @Value.Immutable
+@JsonSerialize(as = TimeTempPair.class)
+@JsonDeserialize(as = TimeTempPair.class)
 public abstract class AbstractTimeTempPair {
 
     @Value.Parameter
-    public abstract LocalTime getTime();
+    public abstract LocalTime time();
 
     @Value.Parameter
-    public abstract Temperature getTemperature();
+    public abstract Temperature temperature();
 }
