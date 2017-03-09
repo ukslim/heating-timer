@@ -1,0 +1,24 @@
+{
+    "type": "fiveTwo",
+    "weekdayProgramme": {
+        "type": "constant",
+        "constantTemp": {
+            "deciCelcius": 100
+        }
+    },
+    "weekendProgramme": {
+        "type": "daily",
+        "controlPoints": [{
+                "time": [3, 10],
+                "temperature": {
+                    "deciCelcius": 200
+                }
+            }, {
+                "time": [2, 20],
+                "temperature": {
+                    "deciCelcius": 300
+                }
+            }]
+    }
+}
+    
